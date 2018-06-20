@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'cancancan'
+gem 'date_validator'
 gem 'devise'
 
 group :development, :test do

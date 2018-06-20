@@ -1,0 +1,4 @@
+<p> Project name: <%= @project.name %></p>
+<p> Summary: <%= @project.summary %> </p>
+<p> Period: <%= @project.start_date %> - <%= @project.end_date %></p>
+<%= link_to 'edit', edit_project_path(@project), class: 'btn btn-primary' %>
