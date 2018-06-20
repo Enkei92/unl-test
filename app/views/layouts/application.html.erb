@@ -19,6 +19,7 @@
           <div class="container-group">
             <% if user_signed_in? %>
               <span>Hello, <%= current_user.email %> </span>
+              <%= link_to 'Profile', current_user %>
               <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: 'btn btn-outline-primary' %>
             <% else %>
               <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-outline-primary' %>
