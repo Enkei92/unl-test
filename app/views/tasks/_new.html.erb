@@ -1,0 +1,28 @@
+<h3> New task: </h3>
+<%= form_for(current_user.tasks.build(project_id: @project.id)) do |f| %>
+
+<% if @task.errors.any? %>
+  <h2>Errors: </h2>
+  <ul>
+    <% @task.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <%= f.hidden_field :project_id %>
+
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-primary' %>
+    <%= link_to "Cancel", :back, class: 'btn btn-outline-primary' %>
+  </div>
+<% end %>

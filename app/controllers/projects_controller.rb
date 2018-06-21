@@ -5,10 +5,13 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  def show; end
+  def show
+    @task = Task.new
+    @tasks = @project.tasks
+  end
 
   def create
-    project = current_user.projects.build(project_params)
+    project = Project.create!(project_params)
     if project.save
       redirect_to @project
     else

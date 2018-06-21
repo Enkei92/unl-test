@@ -11,16 +11,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    user.destroy
-    redirect_to users_path
-  end
-
   private
 
   attr_reader :user
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name)
+    params.require(:user).permit(:first_name, :last_name, :task_id)
   end
 end
