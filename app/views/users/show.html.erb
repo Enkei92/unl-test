@@ -1,0 +1,9 @@
+<h1> Profile </h1>
+<p> Name: <%= @user.first_name %></p>
+<p> Last Name: <%= @user.last_name %></p>
+
+<% if current_user.admin? || @user == current_user %>
+  <div class:'form-group'>
+    <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-primary' %>
+  </div>
+<% end %>
