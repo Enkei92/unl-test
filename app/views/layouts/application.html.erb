@@ -16,11 +16,8 @@
               <a class="nav-link" href="<%= root_path %>"> Home page </a>
           </li>
         </ul>
-            <% if user_signed_in? %>
-              <div class="left">
-                <%= link_to 'Create project', new_project_path(@project), class: 'btn btn-outline-primary' %>
-              </div>
-              <div class="container-group">
+            <div class="container-group">
+              <% if user_signed_in? %>
               <span>Hello, <%= current_user.email %> </span>
               <%= link_to 'Profile', current_user %>
               <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: 'btn btn-outline-primary' %>
