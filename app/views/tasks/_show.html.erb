@@ -1,0 +1,10 @@
+<ul>
+<% @tasks.each do |task| %>
+  <li>
+  	<%= task.title %>
+    <%= task.description %>
+    <%= link_to 'edit task', edit_task_path(task) %>
+    <%= link_to 'destroy', task_path(task), method: :delete, class:'btn btn-primary' %>
+  </li>  
+<% end %>
+</ul>
