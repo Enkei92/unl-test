@@ -1,6 +1,10 @@
 <h1> Profile </h1>
 <p> Name: <%= @user.first_name %></p>
 <p> Last Name: <%= @user.last_name %></p>
+  Assigned to tasks:
+ <% @user.tasks.each do |task| %>
+   <%= link_to task.title, task.project %>
+ <% end %>
 
 <% if current_user.admin? || @user == current_user %>
   <div class:'form-group'>

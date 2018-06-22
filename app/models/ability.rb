@@ -5,7 +5,10 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     user ||= User.new
-    can :manage, :all
+    can :read, Project
+    can :read, Task
+    can :manage, User, id: user.id
+    can :manage, :all if user.admin?
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
