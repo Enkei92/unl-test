@@ -1,14 +1,16 @@
-<div calss="project"> 
-  </br>
-  <p> Project name: <%= @project.name %></p>
-  <p> Summary: <%= @project.summary %> </p>
-  <p> Period: <%= @project.start_date %> - <%= @project.end_date %></p>
-  <%= link_to 'edit', edit_project_path(@project), class: 'btn btn-primary' %>
-</div>
 </br>
-<div>
-  <%= render 'tasks/show' %>
-</div>
-<div class="new_task">
-  <%= render 'tasks/new'%>
+<div calss="container"> 
+  <div class="row">
+    <div class="col-sm">
+      <p> Project name: <%= @project.name %></p>
+      <p> Summary: <%= @project.summary %> </p>
+      <p> Period: <%= @project.start_date %> - <%= @project.end_date %></p>
+      <%= link_to 'edit project', edit_project_path(@project), class: 'btn btn-primary' %>
+      </br> </br>
+      <%= render 'tasks/show' %>
+    </div>
+    <div class="col-sm">
+      <%= render 'tasks/new'%>
+    </div>
+  </div>
 </div>
