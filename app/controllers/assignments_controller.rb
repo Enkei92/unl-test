@@ -3,8 +3,7 @@ class AssignmentsController < ApplicationController
     @task = Task.find(assignment_params[:task_id])
     @project = @task.project
     assignment = @task.assignments.build(assignment_params)
-    flash[:notice] = 'Successfully assigned!' if assignment.save
-    redirect_to @project
+    redirect_to @project if assignment.save
   end
 
   def destroy

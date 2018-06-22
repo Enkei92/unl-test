@@ -9,7 +9,6 @@ class ProjectsController < ApplicationController
     @task = Task.new
     @tasks = @project.tasks
     @assignment = Assignment.new
-    @users = User.all - @task.users
   end
 
   def create

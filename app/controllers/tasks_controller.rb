@@ -7,8 +7,6 @@ class TasksController < ApplicationController
     redirect_to @project if task.save
   end
 
-  def edit; end
-
   def update
     if task.update(task_params)
       redirect_to task.project

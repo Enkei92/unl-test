@@ -3,6 +3,7 @@
   <li>
   	<h4><%= task.title %></h4>
     <p><%= task.description %></p>
+    Status: <b><%= task.status %></b></br>
     Assigned users:
       <% task.users.each do |user| %>
       <p><%= user.email %>
@@ -15,7 +16,7 @@
     <% if can? :manage, Task %>
     <%= link_to 'edit task', edit_task_path(task), class:'btn btn-primary' %>
     <%= link_to 'delete task', task_path(task), method: :delete, class:'btn btn-primary' %>
-    <%= render 'shared/assign_user', task: task %>
+    <%= render 'assignments/assign_user', task: task %>
     <% end %>
   </li>  
 <% end %>

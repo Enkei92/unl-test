@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
 
-  def show; end
-
   def update
     if user.update(user_params)
       redirect_to user
