@@ -1,5 +1,8 @@
+<% if user_signed_in? %>
 </br>
+  <% if can? :manage, Project %>
 <h3><%= link_to 'Create project', new_project_path(@project), class: 'btn btn-primary' %></h3>
+<% end %>
 <div class="container">
   <h2> All projects: </h2>
   <div class="center">
@@ -15,9 +18,13 @@
         </div>
         <p>Description:
         <%= project.summary.truncate(20) %></p>
+      <% if can? :manage, Project %>  
         <%= link_to 'delete project', project_path(project), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %>
+      <% end %>  
       </li>
     <% end %>
   </ul>	
 </div>
 <%= javascript_include_tag 'views/projects/filter.js' %>
+
+<% end %>

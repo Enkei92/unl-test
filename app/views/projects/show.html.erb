@@ -5,12 +5,18 @@
       <p> Project name: <%= @project.name %></p>
       <p> Summary: <%= @project.summary %> </p>
       <p> Period: <%= @project.start_date %> - <%= @project.end_date %></p>
-      <%= link_to 'edit project', edit_project_path(@project), class: 'btn btn-primary' %>
+      <% if can? :manage, Project %>
+        <%= link_to 'edit project', edit_project_path(@project), class: 'btn btn-primary' %>
+      <% end %>
       </br> </br>
+      <h3> Tasks on this project: </h3>
       <%= render 'tasks/show' %>
     </div>
+
+    <%if can? :manage, Task %>
     <div class="col-sm">
       <%= render 'tasks/new'%>
     </div>
+    <% end %>
   </div>
 </div>
