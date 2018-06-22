@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   def show
     @task = Task.new
     @tasks = @project.tasks
+    @assignment = Assignment.new
   end
 
   def create
@@ -18,8 +19,6 @@ class ProjectsController < ApplicationController
       render :new
     end
   end
-
-  def edit; end
 
   def update
     if project.update(project_params)

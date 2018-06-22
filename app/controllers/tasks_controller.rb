@@ -1,12 +1,6 @@
 class TasksController < ApplicationController
   load_and_authorize_resource
 
-  def show; end
-
-  def new
-    @task = Task.new
-  end
-
   def create
     @project = Project.find(task_params[:project_id])
     task = @project.tasks.create!(task_params)
@@ -33,6 +27,6 @@ class TasksController < ApplicationController
   attr_reader :task
 
   def task_params
-    params.require(:task).permit(:title, :description, :status, :project_id, :user_id)
+    params.require(:task).permit(:title, :description, :status, :project_id)
   end
 end
