@@ -3,8 +3,9 @@ class TasksController < ApplicationController
 
   def create
     @project = Project.find(task_params[:project_id])
-    task = @project.tasks.create!(task_params)
-    redirect_to @project if task.save
+    task = @project.tasks.create(task_params)
+    task.save
+    redirect_to @project
   end
 
   def update
